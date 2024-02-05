@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "888456447894",
+    "project_id": "digisave-b0822",
+    "storage_bucket": "digisave-b0822.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888456447894:android:db86dfbafc400673877fb7",
+        "android_client_info": {
+          "package_name": "com.example.classifier"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXkYYbRQ5lT6veVFjCVjje8Y1ynj6kZvI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
