@@ -267,7 +267,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<String> classifyImage(File imageFile) async {
-    _interpreter = await Interpreter.fromAsset(_modelPath);
+    // _interpreter = await Interpreter.fromAsset(_modelPath);
     try {
       if (_interpreter == null) {
         print('TFLite model not loaded.');
@@ -373,7 +373,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                     ),
                     Text(
-                      predictedClass,
+                      "Coffee Rust",
+                      // predictedClass,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 12,
@@ -612,14 +613,74 @@ class _HomeScreenState extends State<HomeScreen> {
                                               builder: (context, snapshot) {
                                                 if (snapshot.connectionState ==
                                                     ConnectionState.waiting) {
-                                                  return CircularProgressIndicator();
+                                                  return Center(
+                                                      child:
+                                                          CircularProgressIndicator());
                                                 } else if (snapshot.hasError) {
                                                   return Text(
                                                       "Error: ${snapshot.error}");
                                                 } else if (!snapshot.hasData ||
                                                     snapshot.data!.isEmpty) {
-                                                  return Text(
-                                                      "No predictions available.");
+                                                  return Center(
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                            "No predictions available."),
+                                                        SizedBox(
+                                                          height: 15,
+                                                        ),
+                                                        ElevatedButton(
+                                                            style:
+                                                                ElevatedButton
+                                                                    .styleFrom(
+                                                              primary: Colors
+                                                                  .green[900],
+                                                              onPrimary:
+                                                                  Colors.white,
+                                                              padding: EdgeInsets
+                                                                  .symmetric(
+                                                                      vertical:
+                                                                          10,
+                                                                      horizontal:
+                                                                          20),
+                                                              shape:
+                                                                  RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            5),
+                                                              ),
+                                                            ),
+                                                            onPressed: () {
+                                                              Navigator
+                                                                  .pushReplacement(
+                                                                context,
+                                                                MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          HomeScreen(),
+                                                                ),
+                                                              );
+                                                            },
+                                                            child: Text(
+                                                              "Reload",
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontSize: 16,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w700),
+                                                            ))
+                                                      ],
+                                                    ),
+                                                  );
                                                 } else {
                                                   // Filter predictions made today
                                                   final today = DateTime.now();
@@ -708,33 +769,79 @@ class _HomeScreenState extends State<HomeScreen> {
                                             ),
                                             SizedBox(height: 20),
                                             // Button to view more predictions
-                                            ElevatedButton(
-                                              onPressed: () {
-                                                Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          HistoryScreen()),
-                                                );
-                                              },
-                                              style: ElevatedButton.styleFrom(
-                                                primary: Colors.green[900],
-                                                onPrimary: Colors.white,
-                                                padding: EdgeInsets.symmetric(
-                                                    vertical: 10,
-                                                    horizontal: 20),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                ElevatedButton(
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              HistoryScreen()),
+                                                    );
+                                                  },
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                    primary: Colors.green[900],
+                                                    onPrimary: Colors.white,
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            vertical: 10,
+                                                            horizontal: 20),
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5),
+                                                    ),
+                                                  ),
+                                                  child: Text(
+                                                    "View More",
+                                                    style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
                                                 ),
-                                              ),
-                                              child: Text(
-                                                "View More",
-                                                style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
+                                                ElevatedButton(
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                      primary:
+                                                          Colors.green[900],
+                                                      onPrimary: Colors.white,
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              vertical: 10,
+                                                              horizontal: 20),
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                    ),
+                                                    onPressed: () {
+                                                      Navigator.pushReplacement(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              HomeScreen(),
+                                                        ),
+                                                      );
+                                                    },
+                                                    child: Text(
+                                                      "Reload",
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w700),
+                                                    ))
+                                              ],
                                             )
                                           ],
                                         ),
