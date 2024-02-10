@@ -19,8 +19,8 @@ class CustomContainer extends StatelessWidget {
     return InkWell(
       onTap: onPressed,
       child: Container(
-        width: 100, // Setting a fixed width for all containers
-        height: 150, color: Color.fromARGB(255, 248, 251, 248),
+        width: 150, // Setting a fixed width for all containers
+        height: 150, color: Color.fromARGB(255, 238, 250, 238),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -38,8 +38,8 @@ class CustomContainer extends StatelessWidget {
                 child: Icon(
                   icon,
                   size: 40,
-                  color: const Color.fromARGB(255, 0, 48,
-                      2), // Setting icon color to match background color
+                  color: Colors
+                      .white, // Setting icon color to match background color
                 ),
               ),
             ),

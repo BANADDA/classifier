@@ -1,0 +1,42 @@
+{
+  "predictions": {
+    "Coffee Rust": {
+      "symptoms": [
+        "yellowish spots on the upper surfaces of leaves",
+        "rust-colored pustules on the undersides of leaves",
+        "defoliation",
+        "reduced berry size"
+      ],
+      "treatment": [
+        "Applying fungicides",
+        "removing the fallen leaves",
+        "using resistant varieties"
+      ]
+    },
+    "Phoma": {
+      "symptoms": [
+        "dark, sunken lesions on leaves",
+        "leaf drop and reduced vigor",
+        "rotting of the berries",
+        "wilting"
+      ],
+      "treatment": [
+        "Pruning the infected parts",
+        "applying fungicides",
+        "improving the drainage and ventilation of the plantation"
+      ]
+    },
+    "Coffee Leaf Miner": {
+      "symptoms": [
+        "Yellowing",
+        "curling and drying of the leaves",
+        "tunnels and holes created by the insect"
+      ],
+      "treatment": [
+        "Pruning the infected branches",
+        "applying insecticides",
+        "resistant varieties"
+      ]
+    }
+  }
+}
